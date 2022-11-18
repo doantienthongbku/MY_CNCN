@@ -1,0 +1,32 @@
+output_dir: 'runs/save'
+log_dir: 'runs/log'
+device: 'cuda:6'
+seed: 42
+dataset:
+  name: 'olaz'
+  root: '/home/taft/ALCON_SPC/detect/dataset'
+  augmentation:
+    horizontal_flip: True
+    rotation_range: 20
+    gamma_correction: [0.5, 1.5]
+    brightness: 0.5
+    contrast: 0.5
+    saturation: 0.5
+  train_set: 'train.csv'
+  val_set: 'val.csv'
+  mean: [0.5070, 0.4764, 0.4551]
+  std: [0.2480, 0.2468, 0.2416]
+model:
+  base: 'DC_CDN'
+  pretrained: true
+  input_size: [256, 256]
+  depth_map_size: [32, 32]
+
+train:
+  batch_size: 8
+  optimizer: 'adam'
+  lr: 0.001
+  num_epochs: 100
+  smoothing: True
+val:
+  batch_size: 8

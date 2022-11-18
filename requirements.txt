@@ -1,0 +1,8 @@
+opencv-python
+future
+tensorboard
+pandas
+pillow==6.2.2
+pyyaml
+matplotlib
+tqdm
